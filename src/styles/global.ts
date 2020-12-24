@@ -14,12 +14,19 @@ export default createGlobalStyle`
 
   body {
     font: 400 1rem Ubuntu, sans-serif;
-    color: ${props => props.theme.colors.text};
-    background: ${props => props.theme.colors.background};
+    color: ${props => props.theme.colors.primaryText};
+    background: ${props => props.theme.colors.primaryBackground};
   }
 
   a {
+    color: ${props => props.theme.colors.primaryAnchor};
     text-decoration: none;
+    transition: opacity 200ms;
+
+    :hover {
+      opacity: .5;
+      cursor: pointer;
+    }
   }
 
   @media (min-width: 1000px) {

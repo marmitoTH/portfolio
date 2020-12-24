@@ -9,7 +9,8 @@ export const List = styled.ul`
 export const Element = styled.li`
   padding: 2rem;
   border-radius: 6px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+  border: 1px solid ${props => props.theme.colors.primaryBorder};
+  background: ${props => props.theme.colors.primaryBackground};
 
   & + & {
     margin-top: 1.5rem;

@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -9,18 +8,37 @@ export const Container = styled.div`
   align-items: center;
 `
 
+export const ProfileContent = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+`
+
 export const Picture = styled.img`
-  width: 30rem;
+  width: 25rem;
   border-radius: 50%;
   margin-bottom: 2.8rem;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+  border: 5px solid ${props => props.theme.colors.primaryBackground};
+
+  @media (min-width: 1000px) {
+    top: -10rem;
+    left: -7rem;
+    position: absolute;
+  }
 `
 
 export const Profile = styled.article`
+  width: 100vw;
+  padding: 1rem;
   font-size: 1.4rem;
+  max-width: 74rem;
+  border-radius: 6px;
+  border: 1px solid ${props => props.theme.colors.primaryBorder};
 
   h1, h2 {
-    margin-bottom: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
   }
 
   p {
@@ -35,25 +53,34 @@ export const Profile = styled.article`
     }
   }
 
+  .tech-icons-list {
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
   @media (max-width: 540px) {
+    border: none;
+
     ul {
       padding-left: 0;
       list-style-type: none;
-
-      li {
-        text-align: center;
-      }
     }
 
-    img {
+    .hide-in-mobile {
       display: none;
     }
   }
 `
 
 export const ReposContainer = styled.div`
-  @media (min-width: 1600px) {
+  display: none;
+  max-width: 35rem;
+  position: absolute;
+
+  @media (min-width: 1300px) {
     right: 5rem;
-    position: absolute;
+    display: initial;
   }
 `

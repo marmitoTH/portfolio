@@ -30,15 +30,17 @@ export const getStaticProps = async () => {
 const Home = ({ profile, repositories }) => {
   return (
     <Styled.Container>
-      <Styled.Picture
-        src={`https://github.com/${config.username}.png`}
-        alt='profile-picture'
-      />
-      <Styled.Profile
-        dangerouslySetInnerHTML={{
-          __html: marked(profile)
-        }}
-      />
+      <Styled.ProfileContent>
+        <Styled.Picture
+          src={`https://github.com/${config.username}.png`}
+          alt='profile-picture'
+        />
+        <Styled.Profile
+          dangerouslySetInnerHTML={{
+            __html: marked(profile)
+          }}
+        />
+      </Styled.ProfileContent>
       <Styled.ReposContainer>
         <RepoList repositories={repositories} />
       </Styled.ReposContainer>

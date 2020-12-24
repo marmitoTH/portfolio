@@ -1,32 +1,47 @@
 import marked from 'marked'
 import config from '../../config.json'
-import { InferGetStaticPropsType } from 'next'
+import { getReadme, getPinnedRepos } from '../scraper'
 import * as Styled from '../styles/pages/Home'
 
+import RepoList from '../components/RepoList'
+
+export interface Repository {
+  repo: string
+  description: string
+  language: string
+}
+
 export const getStaticProps = async () => {
-  const origin = 'https://raw.githubusercontent.com'
-  const uri = `${origin}/${config.username}/${config.username}/master/README.md`
-  const markdown = await fetch(uri).then(res => res.text())
+  const repositories = await getPinnedRepos(config.username)
+  const profile = await getReadme({
+    username: config.username,
+    repository: config.username,
+    branch: 'master'
+  })
 
   return {
     props: {
-      markdown
+      profile,
+      repositories
     }
   }
 }
 
-const Home = ({ markdown }: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home = ({ profile, repositories }) => {
   return (
     <Styled.Container>
       <Styled.Picture
         src={`https://github.com/${config.username}.png`}
         alt='profile-picture'
       />
-      <Styled.Content
+      <Styled.Profile
         dangerouslySetInnerHTML={{
-          __html: marked(markdown)
+          __html: marked(profile)
         }}
       />
+      <Styled.ReposContainer>
+        <RepoList repositories={repositories} />
+      </Styled.ReposContainer>
     </Styled.Container>
   )
 }

@@ -13,9 +13,10 @@ export const Picture = styled.img`
   width: 30rem;
   border-radius: 50%;
   margin-bottom: 2.8rem;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
 `
 
-export const Content = styled.article`
+export const Profile = styled.article`
   font-size: 1.4rem;
 
   h1, h2 {
@@ -50,31 +51,9 @@ export const Content = styled.article`
   }
 `
 
-export const Title = styled.h1`
-  line-height: 2;
-  font-size: 3.5rem;
-  font-weight: normal;
-`
-
-export const Subtitle = styled.h2`
-  font-size: 1.8rem;
-  font-weight: normal;
-`
-
-export const Contact = styled.div`
-  display: flex;
-  align-items: center;
-  margin-top: 2rem;
-
-  a {
-    color: ${props => props.theme.colors.text};
-
-    & + a {
-      margin-left: 1rem;
-    }
+export const ReposContainer = styled.div`
+  @media (min-width: 1600px) {
+    right: 5rem;
+    position: absolute;
   }
 `
-
-export const Icon: CSSProperties = {
-  fontSize: '3rem'
-}

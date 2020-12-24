@@ -1,6 +1,7 @@
 import { Repository } from '../../pages/index'
 import * as Styled from './styles'
 
+import Button from '../Button'
 import AnchorButton from '../AchorButton'
 
 interface Props {
@@ -15,6 +16,9 @@ const RepoList: React.FC<Props> = ({ repositories }) => {
           <Styled.Title>{data.repo}</Styled.Title>
           <Styled.Description>{data.description}</Styled.Description>
           <Styled.Buttons>
+            <Button>
+              Details
+            </Button>
             <AnchorButton
               href={data.url}
               target='__blank'

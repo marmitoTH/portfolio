@@ -25,8 +25,11 @@ export default createGlobalStyle`
 
     :hover {
       opacity: .5;
-      cursor: pointer;
     }
+  }
+
+  button {
+    cursor: pointer;
   }
 
   @media (min-width: 1000px) {

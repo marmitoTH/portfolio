@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Button = styled.div`
   a {
+    color: ${props => props.theme.colors.primaryText};
     display: inline-block;
     justify-content: center;
     padding: .5rem 1rem;

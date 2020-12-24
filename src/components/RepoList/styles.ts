@@ -17,10 +17,14 @@ export const Element = styled.li`
   }
 `
 
+export const Buttons = styled.div`
+  margin-top: 1rem;
+`
+
 export const Title = styled.p`
   font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 `
 
 export const Description = styled.p`

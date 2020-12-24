@@ -6,9 +6,13 @@ import * as Styled from '../styles/pages/Home'
 import RepoList from '../components/RepoList'
 
 export interface Repository {
+  owner: string
   repo: string
-  description: string
   language: string
+  description: string
+  url: string
+  stars: number
+  forks: number
 }
 
 export const getStaticProps = async () => {

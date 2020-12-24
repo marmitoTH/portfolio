@@ -14,7 +14,8 @@ export const getReadme = async ({
 }: GetReadmeProps) => {
   const base = 'https://raw.githubusercontent.com'
   const uri = `${base}/${username}/${repository}/${branch}/README.md`
-  return axios.get(uri).then(response => response.data)
+  return axios.get<string>(uri).then(response => response.data
+    .replace(/theme=dracula/g, ''))
 }
 
 export const getPinnedRepos = async (username: string) => {

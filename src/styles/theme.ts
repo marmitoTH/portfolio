@@ -5,7 +5,7 @@ const theme = {
     primaryBackground: '#fff',
     secondaryBackground: '#efefef',
     primaryBorder: '#e1e4e8',
-    primaryButton: '#238636',
+    primaryButton: '#267ec6',
     secondaryButton: '#e8eaec'
   }
 }

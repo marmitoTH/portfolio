@@ -10,6 +10,18 @@ export default createGlobalStyle`
 
   :root {
     font-size: 50%;
+
+    @media (min-width: 1500px) {
+      font-size: 62.5%;
+    }
+
+    @media (min-width: 2000px) {
+      font-size: 80%;
+    }
+
+    @media (min-width: 2600px) {
+      font-size: 100%;
+    }
   }
 
   body {
@@ -30,11 +42,5 @@ export default createGlobalStyle`
 
   button {
     cursor: pointer;
-  }
-
-  @media (min-width: 1000px) {
-    :root {
-      font-size: 62.5%;
-    }
   }
 `

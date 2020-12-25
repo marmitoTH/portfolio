@@ -21,24 +21,25 @@ export const Picture = styled.img`
   margin-bottom: 2.8rem;
   border: 5px solid ${props => props.theme.colors.primaryBackground};
 
-  @media (min-width: 1000px) {
+  /*@media (min-width: 1000px) {
     top: -10rem;
     left: -7rem;
     position: absolute;
-  }
+  }*/
 `
 
 export const Profile = styled.article`
-  width: 100vw;
-  padding: 1rem;
+  width: 95vw;
+  padding: 2rem;
   font-size: 1.4rem;
-  max-width: 74rem;
+  max-width: 75rem;
   border-radius: 6px;
   border: 1px solid ${props => props.theme.colors.primaryBorder};
 
   h1, h2 {
-    line-height: 1.5;
     margin-bottom: 1rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid ${props => props.theme.colors.primaryBorder};
   }
 
   p {
@@ -60,8 +61,15 @@ export const Profile = styled.article`
     }
   }
 
+  .stats-images {
+    img {
+      height: 15rem;
+    }
+  }
+
   @media (max-width: 540px) {
     border: none;
+    padding: .5rem;
 
     ul {
       padding-left: 0;
@@ -76,11 +84,11 @@ export const Profile = styled.article`
 
 export const ReposContainer = styled.div`
   display: none;
-  max-width: 35rem;
   position: absolute;
 
   @media (min-width: 1300px) {
     right: 5rem;
+    max-width: 35rem;
     display: initial;
   }
 `

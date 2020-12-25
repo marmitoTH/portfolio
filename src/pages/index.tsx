@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Head from 'next/head'
 import marked from 'marked'
 import config from '../../config.json'
 import { getReadme, getPinnedRepos } from '../scraper'
@@ -40,6 +41,9 @@ const Home = ({ profile, repositories }) => {
 
   return (
     <Styled.Container>
+      <Head>
+        <title>Lucas Rodrigues</title>
+      </Head>
       <Styled.ProfileContent>
         <Styled.Picture
           src={`https://github.com/${config.username}.png`}

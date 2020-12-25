@@ -4,6 +4,8 @@ import { getReadme, getPinnedRepos } from '../scraper'
 import * as Styled from '../styles/pages/Home'
 
 import RepoList from '../components/RepoList'
+import Modal from '../components/Modal'
+import { useState } from 'react'
 
 export interface Repository {
   owner: string
@@ -32,6 +34,8 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ profile, repositories }) => {
+  const [openModal, setOpenModal] = useState(true)
+
   return (
     <Styled.Container>
       <Styled.ProfileContent>
@@ -48,6 +52,12 @@ const Home = ({ profile, repositories }) => {
       <Styled.ReposContainer>
         <RepoList repositories={repositories} />
       </Styled.ReposContainer>
+      <Modal
+        open={openModal}
+        onClosePressed={() => setOpenModal(false)}
+      >
+        nothing
+      </Modal>
     </Styled.Container>
   )
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import marked from 'marked'
 import config from '../../config.json'
 import { getReadme, getPinnedRepos } from '../scraper'
@@ -5,7 +6,7 @@ import * as Styled from '../styles/pages/Home'
 
 import RepoList from '../components/RepoList'
 import Modal from '../components/Modal'
-import { useState } from 'react'
+import MDRenderer from '../components/MDRenderer'
 
 export interface Repository {
   owner: string
@@ -70,9 +71,7 @@ const Home = ({ profile, repositories }) => {
         open={openModal}
         onClosePressed={() => setOpenModal(false)}
       >
-        <div dangerouslySetInnerHTML={{
-          __html: marked(repoReadme)
-        }} />
+        <MDRenderer markdown={repoReadme} />
       </Modal>
     </Styled.Container>
   )

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import * as Animation from '../../styles/animations'
 
 export const List = styled.ul`
   width: 100%;
@@ -6,11 +7,12 @@ export const List = styled.ul`
   list-style-type: none;
 `
 
-export const Element = styled.li`
+export const Element = styled.li<{ fadeDelay: number }>`
   padding: 2rem;
   border-radius: 6px;
   border: 1px solid ${props => props.theme.colors.primaryBorder};
   background: ${props => props.theme.colors.primaryBackground};
+  animation: ${Animation.ZoomIn} 200ms ${({ fadeDelay }) => fadeDelay}ms backwards;
 
   & + & {
     margin-top: 1.5rem;

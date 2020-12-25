@@ -13,7 +13,10 @@ const RepoList: React.FC<Props> = ({ repositories, onSelect }) => {
   return (
     <Styled.List>
       {repositories.map((data, index) => (
-        <Styled.Element key={index}>
+        <Styled.Element
+          key={index}
+          fadeDelay={index * 100}
+        >
           <Styled.Title>{data.repo}</Styled.Title>
           <Styled.Description>{data.description}</Styled.Description>
           <Styled.Buttons>

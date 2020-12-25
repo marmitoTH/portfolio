@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import * as Animation from '../../styles/animations'
 
 export const Container = styled.div`
   height: 100vh;
@@ -13,19 +14,22 @@ export const ProfileContent = styled.div`
   position: relative;
   flex-direction: column;
   align-items: center;
+  animation: ${Animation.FadeIn} 400ms backwards;
 `
 
 export const Picture = styled.img`
   width: 25rem;
+  height: 25rem;
   border-radius: 50%;
   margin-bottom: 2.8rem;
+  background: #efefef;
   border: 5px solid ${props => props.theme.colors.primaryBackground};
 
-  /*@media (min-width: 1000px) {
+  @media (min-width: 1000px) {
     top: -10rem;
     left: -7rem;
     position: absolute;
-  }*/
+  }
 `
 
 export const Profile = styled.article`

@@ -34,7 +34,8 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ profile, repositories }) => {
-  const [openModal, setOpenModal] = useState(true)
+  const [openModal, setOpenModal] = useState<boolean>(false)
+  const [repoReadme, setRepoReadme] = useState<string>('')
 
   return (
     <Styled.Container>
@@ -50,13 +51,28 @@ const Home = ({ profile, repositories }) => {
         />
       </Styled.ProfileContent>
       <Styled.ReposContainer>
-        <RepoList repositories={repositories} />
+        <RepoList
+          repositories={repositories}
+          onSelect={async repository => {
+            const readme = await getReadme({
+              username: repository.owner,
+              repository:
+                repository.repo,
+              branch: 'master'
+            })
+
+            setRepoReadme(readme)
+            setOpenModal(true)
+          }}
+        />
       </Styled.ReposContainer>
       <Modal
         open={openModal}
         onClosePressed={() => setOpenModal(false)}
       >
-        nothing
+        <div dangerouslySetInnerHTML={{
+          __html: marked(repoReadme)
+        }} />
       </Modal>
     </Styled.Container>
   )

@@ -4,11 +4,12 @@ import * as Styled from './styles'
 import Button from '../Button'
 import AnchorButton from '../AchorButton'
 
-interface Props {
+export interface Props {
   repositories: Repository[]
+  onSelect(repository: Repository): void
 }
 
-const RepoList: React.FC<Props> = ({ repositories }) => {
+const RepoList: React.FC<Props> = ({ repositories, onSelect }) => {
   return (
     <Styled.List>
       {repositories.map((data, index) => (
@@ -16,7 +17,11 @@ const RepoList: React.FC<Props> = ({ repositories }) => {
           <Styled.Title>{data.repo}</Styled.Title>
           <Styled.Description>{data.description}</Styled.Description>
           <Styled.Buttons>
-            <Button>
+            <Button
+              onClick={() => {
+                onSelect(data)
+              }}
+            >
               Details
             </Button>
             <AnchorButton

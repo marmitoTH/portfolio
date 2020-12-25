@@ -19,6 +19,7 @@ export const Container = styled.div`
   max-width: 90rem;
   background: #fff;
   position: relative;
+  overflow: hidden auto;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
 `
 

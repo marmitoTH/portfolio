@@ -9,23 +9,12 @@ export default createGlobalStyle`
   }
 
   :root {
-    font-size: 50%;
-
-    @media (min-width: 1500px) {
-      font-size: 62.5%;
-    }
-
-    @media (min-width: 2000px) {
-      font-size: 80%;
-    }
-
-    @media (min-width: 2600px) {
-      font-size: 100%;
-    }
+    font-size: 62.5%;
   }
 
   body {
-    font: 400 1rem Ubuntu, sans-serif;
+    line-height: 1.5;
+    font: 400 1rem Inter, sans-serif;
     color: ${props => props.theme.colors.primaryText};
     background: ${props => props.theme.colors.primaryBackground};
   }

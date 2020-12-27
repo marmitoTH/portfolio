@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height  : 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +36,6 @@ export const Paragraph = styled.p`
 
 export const Icons = styled.div`
   font-size: 4rem;
-  align-self: center;
 
   svg + svg {
     margin-left: .5rem;

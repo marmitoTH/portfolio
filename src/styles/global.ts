@@ -13,7 +13,6 @@ export default createGlobalStyle`
   }
 
   body {
-    line-height: 1.5;
     font: 400 1rem 'Inter', sans-serif;
     color: ${props => props.theme.colors.primaryText};
     background: ${props => props.theme.colors.primaryBackground};

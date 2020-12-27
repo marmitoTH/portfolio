@@ -11,7 +11,11 @@ export interface Props {
 }
 
 const SocialButton: React.FC<Props> = ({ type, href }) => (
-  <a href={href} target='__blank' style={{ color: 'inherit' }}>
+  <a
+    href={href}
+    target='__blank'
+    style={{ color: 'inherit' }}
+  >
     {(() => {
       switch (type) {
         case 'email':

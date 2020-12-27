@@ -9,7 +9,15 @@ export default createGlobalStyle`
   }
 
   :root {
-    font-size: 62.5%;
+    font-size: 50%;
+
+    @media (min-width: 1000px) {
+      font-size: 62.5%;
+    }
+
+    @media (min-width: 2500px) {
+      font-size: 95%;
+    }
   }
 
   body {

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Markdown = styled.div`
-  line-height: 1.5;
-  font-size: 1.4rem;
+  font-size: inherit;
+  line-height: inherit;
 
   p {
     margin-bottom: 1.6rem;
@@ -29,5 +29,9 @@ export const Markdown = styled.div`
 
   img {
     max-width: 100%;
+  }
+
+  .hidden {
+    display: none;
   }
 `

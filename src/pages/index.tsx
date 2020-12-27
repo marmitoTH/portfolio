@@ -1,30 +1,36 @@
-import SocialButton from '../components/SocialButton'
+import config from '../../config.json'
+import { getReadme } from '../services/scraper'
 import * as Styled from '../styles/pages/Home'
 
-const Home = () => {
+import MDRenderer from '../components/MDRenderer'
+
+export const getStaticProps = async () => {
+  const readme = await getReadme({
+    username: config.username,
+    repository: config.username,
+    branch: 'master'
+  })
+
+  return {
+    props: {
+      readme
+    }
+  }
+}
+
+const Home = ({ readme }) => {
   return (
     <Styled.Container>
-      <Styled.Title>Hi ya 👋</Styled.Title>
-      <Styled.Subtitle>My name is Lucas</Styled.Subtitle>
-      <Styled.Paragraph>I'm a full-stack developer!</Styled.Paragraph>
-      <Styled.Icons>
-        <SocialButton
-          type='github'
-          href='https://github.com/marmitoth'
-        />
-        <SocialButton
-          type='linkedin'
-          href='https://www.linkedin.com/in/lucas-rodrigues-985918197'
-        />
-        <SocialButton
-          type='youtube'
-          href='https://www.youtube.com/channel/UC68qKjP7l6weO5P7mmbSvPA'
-        />
-        <SocialButton
-          type='email'
-          href='mailto:marmitoth@outlook.com'
-        />
-      </Styled.Icons>
+      <Styled.Section>
+        <Styled.Picture src={`https://github.com/${config.username}.png`} />
+        <MDRenderer markdown={readme} />
+      </Styled.Section>
+      <Styled.Section>
+        <h1>Projects</h1>
+      </Styled.Section>
+      <Styled.Section>
+        <h1>Contact</h1>
+      </Styled.Section>
     </Styled.Container>
   )
 }

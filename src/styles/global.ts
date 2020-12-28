@@ -20,9 +20,12 @@ export default createGlobalStyle`
     }
   }
 
-  body {
+  body, input, textarea {
     font: 400 1rem 'Inter', sans-serif;
     color: ${props => props.theme.colors.primaryText};
+  }
+
+  body {
     background: ${props => props.theme.colors.primaryBackground};
   }
 

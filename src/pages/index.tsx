@@ -6,6 +6,7 @@ import * as Styled from '../styles/pages/Home'
 import MDRenderer from '../components/MDRenderer'
 import RepoList from '../components/RepoList'
 import Modal from '../components/Modal'
+import ContactForm from '../components/ContactForm'
 
 export const getStaticProps = async () => {
   const readme = await getReadme({
@@ -72,6 +73,7 @@ const Home = ({ readme, repos }) => {
         <Styled.Subtitle>
           Let's get in touch! Leave me a message, you'll be answered as soon as possible.
         </Styled.Subtitle>
+        <ContactForm />
       </Styled.Section>
     </Styled.Container>
   )

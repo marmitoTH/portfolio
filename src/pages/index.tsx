@@ -30,11 +30,17 @@ const Home = ({ readme, repos }) => {
         <MDRenderer markdown={readme} />
       </Styled.Section>
       <Styled.Section>
-        <h1>Projects</h1>
+        <Styled.Title>Experience</Styled.Title>
+        <Styled.Subtitle>
+          Some of my works, visit my <a href={`https://github.com/${config.username}?tab=repositories`} target='__blank'>GitHub</a> for a full list of projects.
+        </Styled.Subtitle>
         <RepoList repositories={repos} onSelect={() => { }} />
       </Styled.Section>
       <Styled.Section>
-        <h1>Contact</h1>
+        <Styled.Title>Contact</Styled.Title>
+        <Styled.Subtitle>
+          Let's get in touch! Leave me a message, you'll be answered as soon as possible.
+        </Styled.Subtitle>
       </Styled.Section>
     </Styled.Container>
   )

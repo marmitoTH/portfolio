@@ -4,7 +4,6 @@ export const Container = styled.div`
   width: 100%;
   line-height: 1.6;
   font-size: 1.6rem;
-  text-align: justify;
 `
 
 export const Section = styled.section`
@@ -32,4 +31,12 @@ export const Picture = styled.img`
   @media (min-width: 1000px) {
     display: initial;
   }
+`
+
+export const Title = styled.h1`
+  margin-bottom: 1rem;
+`
+
+export const Subtitle = styled.p`
+  margin: 2rem 0;
 `

@@ -1,8 +1,11 @@
-import { Repository } from '../../pages/index'
 import * as Styled from './styles'
 
-import Button from '../Button'
-import AnchorButton from '../AchorButton'
+interface Repository {
+  url: string
+  repo: string
+  owner: string
+  description: string
+}
 
 export interface Props {
   repositories: Repository[]
@@ -16,24 +19,12 @@ const RepoList: React.FC<Props> = ({ repositories, onSelect }) => {
         <Styled.Element
           key={index}
           fadeDelay={index * 100}
+          onClick={() => {
+            onSelect(data)
+          }}
         >
           <Styled.Title>{data.repo}</Styled.Title>
           <Styled.Description>{data.description}</Styled.Description>
-          <Styled.Buttons>
-            <Button
-              onClick={() => {
-                onSelect(data)
-              }}
-            >
-              Details
-            </Button>
-            <AnchorButton
-              href={data.url}
-              target='__blank'
-            >
-              Source
-            </AnchorButton>
-          </Styled.Buttons>
         </Styled.Element>
       ))}
     </Styled.List>

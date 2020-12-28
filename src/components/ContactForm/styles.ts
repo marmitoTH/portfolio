@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { shade } from 'polished'
+import { lighten } from 'polished'
 
 export const Form = styled.form`
   label {
@@ -38,7 +38,7 @@ export const Button = styled.button<{ disabled: boolean }>`
     cursor: default;
   ` || css`
     :hover {
-      background: ${props => shade(.25, props.theme.colors.primaryButton)};
+      background: ${props => lighten(.25, props.theme.colors.primaryButton)};
     }
   `}
 `

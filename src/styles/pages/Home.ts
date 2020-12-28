@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const Section = styled.section`
   margin: auto;
   padding: 4rem;
+  padding-top: 8rem;
   display: flex;
   max-width: 100rem;
   flex-direction: column;
@@ -18,7 +19,7 @@ export const Picture = styled.img`
   width: 27rem;
   height: 27rem;
   border-radius: 50%;
-  margin-bottom: 4rem;
+  margin: 4rem 0;
   align-self: center;
 
   @media (min-width: 1000px) {

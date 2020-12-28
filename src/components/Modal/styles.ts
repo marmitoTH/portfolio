@@ -10,6 +10,7 @@ export const Backdrop = styled.div<{ closing: boolean }>`
   align-items: center;
   justify-content: center;
   position: fixed;
+  z-index: 5;
   backdrop-filter: blur(10px);
   animation: ${Animation.FadeIn} 400ms backwards;
 

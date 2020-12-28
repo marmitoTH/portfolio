@@ -10,7 +10,6 @@ export const Section = styled.section`
   margin: auto;
   padding: 4rem;
   display: flex;
-  padding-top: 10rem;
   max-width: 100rem;
   flex-direction: column;
 `
@@ -19,9 +18,8 @@ export const Picture = styled.img`
   width: 27rem;
   height: 27rem;
   border-radius: 50%;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   align-self: center;
-  display: none;
 
   @media (min-width: 1000px) {
     display: initial;

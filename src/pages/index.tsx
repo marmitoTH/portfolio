@@ -1,8 +1,9 @@
 import config from '../../config.json'
-import { getReadme } from '../services/scraper'
+import { getReadme, getPinnedRepos } from '../services/scraper'
 import * as Styled from '../styles/pages/Home'
 
 import MDRenderer from '../components/MDRenderer'
+import RepoList from '../components/RepoList'
 
 export const getStaticProps = async () => {
   const readme = await getReadme({
@@ -11,14 +12,17 @@ export const getStaticProps = async () => {
     branch: 'master'
   })
 
+  const repos = await getPinnedRepos(config.username)
+
   return {
     props: {
-      readme
+      readme,
+      repos
     }
   }
 }
 
-const Home = ({ readme }) => {
+const Home = ({ readme, repos }) => {
   return (
     <Styled.Container>
       <Styled.Section>
@@ -27,6 +31,7 @@ const Home = ({ readme }) => {
       </Styled.Section>
       <Styled.Section>
         <h1>Projects</h1>
+        <RepoList repositories={repos} onSelect={() => { }} />
       </Styled.Section>
       <Styled.Section>
         <h1>Contact</h1>

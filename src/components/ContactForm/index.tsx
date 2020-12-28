@@ -54,20 +54,18 @@ const ContactForm = () => {
 
   return (
     <Styled.Form onSubmit={handleSubmit}>
-      <label>Email</label>
       <input
         type='email'
         name='email'
         maxLength={64}
-        placeholder='your@email.com'
+        placeholder='E-mail'
         required
       />
-      <label>Message</label>
       <textarea
         name='message'
         rows={3}
         maxLength={512}
-        placeholder='Your message goes here...'
+        placeholder='Message'
         required
       />
       <Styled.Button

@@ -9,7 +9,7 @@ export const Backdrop = styled.div<{ closing: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
   backdrop-filter: blur(10px);
   animation: ${Animation.FadeIn} 400ms backwards;
 

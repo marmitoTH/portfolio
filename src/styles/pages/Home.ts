@@ -12,7 +12,6 @@ export const Section = styled.section`
   display: flex;
   padding-top: 10rem;
   max-width: 105rem;
-  min-height: 100vh;
   flex-direction: column;
 
   h1 {
@@ -34,9 +33,9 @@ export const Picture = styled.img`
 `
 
 export const Title = styled.h1`
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `
 
 export const Subtitle = styled.p`
-  margin: 2rem 0;
+  margin-bottom: 2rem;
 `

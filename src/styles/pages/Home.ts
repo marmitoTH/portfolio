@@ -11,12 +11,8 @@ export const Section = styled.section`
   padding: 4rem;
   display: flex;
   padding-top: 10rem;
-  max-width: 105rem;
+  max-width: 100rem;
   flex-direction: column;
-
-  h1 {
-    font-size: 3.6rem;
-  }
 `
 
 export const Picture = styled.img`

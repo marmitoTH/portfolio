@@ -55,6 +55,7 @@ const Skills = () => {
           <li>React Navigation</li>
           <li>Styled Components</li>
           <li>React Icons</li>
+          <li>Context API</li>
         </ul>
         <p>Tools</p>
         <ul>

@@ -1,9 +1,10 @@
 import {
-  FaGithubSquare,
-  FaLinkedin,
-  FaYoutubeSquare,
-  FaEnvelopeSquare
-} from 'react-icons/fa'
+  FiGithub,
+  FiLinkedin,
+  FiYoutube,
+} from 'react-icons/fi'
+
+import { BiEnvelope } from 'react-icons/bi'
 
 export interface Props {
   href: string
@@ -19,13 +20,13 @@ const SocialButton: React.FC<Props> = ({ type, href }) => (
     {(() => {
       switch (type) {
         case 'email':
-          return <FaEnvelopeSquare />
+          return <BiEnvelope />
         case 'github':
-          return <FaGithubSquare />
+          return <FiGithub />
         case 'linkedin':
-          return <FaLinkedin />
+          return <FiLinkedin />
         case 'youtube':
-          return <FaYoutubeSquare />
+          return <FiYoutube />
       }
     })()}
   </a>

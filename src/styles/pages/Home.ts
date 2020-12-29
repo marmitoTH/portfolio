@@ -27,6 +27,16 @@ export const Picture = styled.img`
   }
 `
 
+export const SocialButtons = styled.div`
+  font-size: 4rem;
+  align-self: center;
+  margin-top: 2rem;
+
+  a + a {
+    margin-left: 2rem;
+  }
+`
+
 export const Title = styled.h1`
   margin-bottom: 2rem;
 `

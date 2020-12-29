@@ -9,6 +9,7 @@ import RepoList from '../components/RepoList'
 import Modal from '../components/Modal'
 import Skills from '../components/Skills'
 import ContactForm from '../components/ContactForm'
+import SocialButton from '../components/SocialButton'
 
 export const getStaticProps = async () => {
   const readme = await getReadme({
@@ -68,6 +69,12 @@ const Home = ({ readme, repos }) => {
       <Styled.Section id='about'>
         <Styled.Picture src={`https://github.com/${config.username}.png`} />
         <MDRenderer markdown={readme} />
+        <Styled.SocialButtons>
+          <SocialButton type='github' href={config.social.github} />
+          <SocialButton type='linkedin' href={config.social.linkedin} />
+          <SocialButton type='email' href={config.social.mail} />
+          <SocialButton type='youtube' href={config.social.youtube} />
+        </Styled.SocialButtons>
       </Styled.Section>
       <Styled.Section id='projects'>
         <Styled.Title>Projects</Styled.Title>
@@ -87,9 +94,6 @@ const Home = ({ readme, repos }) => {
       </Styled.Section>
       <Styled.Section id='skills'>
         <Styled.Title>Skills</Styled.Title>
-        <Styled.Subtitle>
-          Some skills I've developed during the production of the above projects.
-        </Styled.Subtitle>
         <Skills />
       </Styled.Section>
       <Styled.Section id='contact'>

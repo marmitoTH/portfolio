@@ -10,6 +10,7 @@ import Modal from '../components/Modal'
 import Skills from '../components/Skills'
 import ContactForm from '../components/ContactForm'
 import SocialButton from '../components/SocialButton'
+import Footer from '../components/Footer'
 
 export const getStaticProps = async () => {
   const readme = await getReadme({
@@ -103,6 +104,7 @@ const Home = ({ readme, repos }) => {
         </Styled.Subtitle>
         <ContactForm />
       </Styled.Section>
+      <Footer />
     </Styled.Container>
   )
 }

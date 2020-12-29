@@ -1,82 +1,110 @@
 import { useState } from 'react'
-import Head from 'next/head'
-import marked from 'marked'
 import config from '../../config.json'
-import { getReadme, getPinnedRepos } from '../scraper'
+import { getReadme, getPinnedRepos } from '../services/scraper'
 import * as Styled from '../styles/pages/Home'
 
+import Navbar from '../components/Navbar'
+import MDRenderer from '../components/MDRenderer'
 import RepoList from '../components/RepoList'
 import Modal from '../components/Modal'
-import MDRenderer from '../components/MDRenderer'
-
-export interface Repository {
-  owner: string
-  repo: string
-  language: string
-  description: string
-  url: string
-  stars: number
-  forks: number
-}
+import Skills from '../components/Skills'
+import ContactForm from '../components/ContactForm'
+import SocialButton from '../components/SocialButton'
+import Footer from '../components/Footer'
 
 export const getStaticProps = async () => {
-  const repositories = await getPinnedRepos(config.username)
-  const profile = await getReadme({
+  const readme = await getReadme({
     username: config.username,
     repository: config.username,
     branch: 'master'
   })
 
+  const repos = await getPinnedRepos(config.username)
+
   return {
     props: {
-      profile,
-      repositories
+      readme,
+      repos
     }
   }
 }
 
-const Home = ({ profile, repositories }) => {
-  const [openModal, setOpenModal] = useState<boolean>(false)
-  const [repoReadme, setRepoReadme] = useState<string>('')
+const Home = ({ readme, repos }) => {
+  const [openModal, setOpenModal] = useState<boolean>()
+  const [modalContent, setModalContent] = useState<string>()
+
+  const handleModalOpen = async (repo) => {
+    const readme = await getReadme({
+      username: repo.owner,
+      repository: repo.repo,
+      branch: 'master'
+    })
+
+    setOpenModal(true)
+    setModalContent(readme)
+    document.documentElement.style.overflow = 'hidden'
+  }
+
+  const handleModalClose = () => {
+    setOpenModal(false)
+    document.documentElement.style.overflow = 'auto'
+  }
 
   return (
     <Styled.Container>
-      <Head>
-        <title>Lucas Rodrigues</title>
-      </Head>
-      <Styled.ProfileContent>
-        <Styled.Picture
-          src={`https://github.com/${config.username}.png`}
-          alt='profile-picture'
-        />
-        <Styled.Profile
-          dangerouslySetInnerHTML={{
-            __html: marked(profile)
-          }}
-        />
-      </Styled.ProfileContent>
-      <Styled.ReposContainer>
+      <Navbar
+        links={[{
+          url: '#about',
+          title: 'About'
+        }, {
+          url: '#projects',
+          title: 'Projects'
+        }, {
+          url: '#skills',
+          title: 'Skills'
+        }, {
+          url: '#contact',
+          title: 'Contact'
+        }]}
+      />
+      <Styled.Section id='about'>
+        <Styled.Picture src={`https://github.com/${config.username}.png`} />
+        <MDRenderer markdown={readme} />
+        <Styled.SocialButtons>
+          <SocialButton type='github' href={config.social.github} />
+          <SocialButton type='linkedin' href={config.social.linkedin} />
+          <SocialButton type='email' href={config.social.mail} />
+          <SocialButton type='youtube' href={config.social.youtube} />
+        </Styled.SocialButtons>
+      </Styled.Section>
+      <Styled.Section id='projects'>
+        <Styled.Title>Projects</Styled.Title>
+        <Styled.Subtitle>
+          Some of my works, visit my <a href={`https://github.com/${config.username}?tab=repositories`} target='__blank'>GitHub</a> for a full list of projects.
+        </Styled.Subtitle>
         <RepoList
-          repositories={repositories}
-          onSelect={async repository => {
-            const readme = await getReadme({
-              username: repository.owner,
-              repository:
-                repository.repo,
-              branch: 'master'
-            })
-
-            setRepoReadme(readme)
-            setOpenModal(true)
-          }}
+          repositories={repos}
+          onSelect={handleModalOpen}
         />
-      </Styled.ReposContainer>
-      <Modal
-        open={openModal}
-        onClosePressed={() => setOpenModal(false)}
-      >
-        <MDRenderer markdown={repoReadme} />
-      </Modal>
+        <Modal
+          open={openModal}
+          onClosePressed={handleModalClose}
+        >
+          <MDRenderer markdown={modalContent} />
+        </Modal>
+      </Styled.Section>
+      <Styled.Section id='skills'>
+        <Styled.Title>Skills</Styled.Title>
+        <Skills />
+      </Styled.Section>
+      <Styled.Section id='contact'>
+        <Styled.Title>Contact</Styled.Title>
+        <Styled.Subtitle>
+          Let's get in touch! Leave me a message, you'll be answered as soon as possible.
+        </Styled.Subtitle>
+        <ContactForm />
+      </Styled.Section>
+      <Footer />
     </Styled.Container>
   )
 }

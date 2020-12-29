@@ -9,7 +9,8 @@ export const Backdrop = styled.div<{ closing: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  position: fixed;
+  z-index: 5;
   backdrop-filter: blur(10px);
   animation: ${Animation.FadeIn} 400ms backwards;
 
@@ -41,8 +42,8 @@ export const CloseButton = styled.button`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(0, 0, 0, .2);
-  font-weight: bold;
+  background: #000;
+  color: #fff;
   position: absolute;
   top: 1.5rem;
   right: 2rem;

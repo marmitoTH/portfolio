@@ -16,6 +16,15 @@ const Skills = () => {
         <ul>
           <li>NodeJS</li>
         </ul>
+        <p>Libraries</p>
+        <ul>
+          <li>Express</li>
+          <li>Jest</li>
+          <li>JSON Web Token</li>
+          <li>Bcrypt JS</li>
+          <li>CSV to JSON</li>
+          <li>TypeORM</li>
+        </ul>
         <p>Tools</p>
         <ul>
           <li>Docker</li>
@@ -38,6 +47,14 @@ const Skills = () => {
           <li>ReactJS</li>
           <li>React Native</li>
           <li>Next JS</li>
+        </ul>
+        <p>Libraries</p>
+        <ul>
+          <li>Axios</li>
+          <li>React Router</li>
+          <li>React Navigation</li>
+          <li>Styled Components</li>
+          <li>React Icons</li>
         </ul>
         <p>Tools</p>
         <ul>

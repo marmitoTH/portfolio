@@ -12,7 +12,7 @@ export const Section = styled.section`
   text-align: center;
 
   h1 {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   p {
@@ -22,7 +22,7 @@ export const Section = styled.section`
 
   ul {
     padding-left: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   li {
@@ -35,6 +35,6 @@ export const Section = styled.section`
 
   .icon {
     font-size: 4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 `

@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar'
 import MDRenderer from '../components/MDRenderer'
 import RepoList from '../components/RepoList'
 import Modal from '../components/Modal'
+import Skills from '../components/Skills'
 import ContactForm from '../components/ContactForm'
 
 export const getStaticProps = async () => {
@@ -54,8 +55,11 @@ const Home = ({ readme, repos }) => {
           url: '#about',
           title: 'About'
         }, {
-          url: '#experience',
-          title: 'Experience'
+          url: '#projects',
+          title: 'Projects'
+        }, {
+          url: '#skills',
+          title: 'Skills'
         }, {
           url: '#contact',
           title: 'Contact'
@@ -65,8 +69,8 @@ const Home = ({ readme, repos }) => {
         <Styled.Picture src={`https://github.com/${config.username}.png`} />
         <MDRenderer markdown={readme} />
       </Styled.Section>
-      <Styled.Section id='experience'>
-        <Styled.Title>Experience</Styled.Title>
+      <Styled.Section id='projects'>
+        <Styled.Title>Projects</Styled.Title>
         <Styled.Subtitle>
           Some of my works, visit my <a href={`https://github.com/${config.username}?tab=repositories`} target='__blank'>GitHub</a> for a full list of projects.
         </Styled.Subtitle>
@@ -80,6 +84,13 @@ const Home = ({ readme, repos }) => {
         >
           <MDRenderer markdown={modalContent} />
         </Modal>
+      </Styled.Section>
+      <Styled.Section id='skills'>
+        <Styled.Title>Skills</Styled.Title>
+        <Styled.Subtitle>
+          Some skills I've developed during the production of the above projects.
+        </Styled.Subtitle>
+        <Skills />
       </Styled.Section>
       <Styled.Section id='contact'>
         <Styled.Title>Contact</Styled.Title>

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import axios from 'axios'
 import * as Styled from './styles'
 
@@ -10,6 +10,8 @@ export interface Feedback {
 const ContactForm = () => {
   const [sending, setSending] = useState<boolean>()
   const [feedback, setFeedback] = useState<Feedback>()
+  const emailInput = useRef<HTMLInputElement>()
+  const messageInput = useRef<HTMLTextAreaElement>()
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     const base = process.env.NEXT_PUBLIC_EMAIL_PROVIDER
@@ -41,6 +43,9 @@ const ContactForm = () => {
           type: 'success',
           message: 'Thanks, your email has been sent!'
         })
+
+        emailInput.current.value = ''
+        messageInput.current.value = ''
       }).catch(() => {
         setFeedback({
           type: 'error',
@@ -55,6 +60,7 @@ const ContactForm = () => {
   return (
     <Styled.Form onSubmit={handleSubmit}>
       <input
+        ref={emailInput}
         type='email'
         name='email'
         maxLength={64}
@@ -62,6 +68,7 @@ const ContactForm = () => {
         required
       />
       <textarea
+        ref={messageInput}
         name='message'
         rows={3}
         maxLength={512}

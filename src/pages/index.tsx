@@ -11,6 +11,7 @@ import Skills from '../components/Skills'
 import ContactForm from '../components/ContactForm'
 import SocialButton from '../components/SocialButton'
 import Footer from '../components/Footer'
+import Button from '../components/Button'
 
 export const getStaticProps = async () => {
   const readme = await getReadme({
@@ -70,6 +71,12 @@ const Home = ({ readme, repos }) => {
       <Styled.Section id='about'>
         <Styled.Picture src={`https://github.com/${config.username}.png`} />
         <MDRenderer markdown={readme} />
+        <Button
+          href='/lucas_rodrigues_cv.pdf'
+          style={{ alignSelf: 'center', margin: '1rem 0' }}
+        >
+          Download CV
+        </Button>
         <Styled.SocialButtons>
           <SocialButton type='github' href={config.social.github} />
           <SocialButton type='linkedin' href={config.social.linkedin} />

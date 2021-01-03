@@ -95,6 +95,9 @@ const Home = ({ readme, repos }) => {
       </Styled.Section>
       <Styled.Section id='skills'>
         <Styled.Title>Skills</Styled.Title>
+        <Styled.Subtitle>
+          Some of the skills I've developed during the above projects.
+        </Styled.Subtitle>
         <Skills />
       </Styled.Section>
       <Styled.Section id='contact'>
